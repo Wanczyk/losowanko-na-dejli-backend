@@ -1,0 +1,1 @@
+{"id":"cecca850-826f-4e60-9849-a633ea8269b4","space":10097,"runtime":"python3.7","name":"losowanko-na-dejli-backend-save","path":"81t8hx","project":"a0cugyr0","account":"144798365827","region":"eu-central-1","deps":["fastapi==0.68.0","uvicorn[standard]==0.14.0","sqlalchemy==1.4.22","pydantic~=1.8.2"],"envs":null,"public":true,"log_level":"debug","cron":""}

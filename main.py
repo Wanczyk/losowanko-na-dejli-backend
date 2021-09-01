@@ -10,6 +10,7 @@ from starlette.middleware.cors import CORSMiddleware
 from notifier import Notifier
 
 origins = [
+    "*",
     "https://losowanko-na-dejli.netlify.app/"
 ]
 
