@@ -10,10 +10,7 @@ from starlette.middleware.cors import CORSMiddleware
 from notifier import Notifier
 
 origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
-    "http://localhost",
-    "http://localhost:8080",
+    "https://losowanko-na-dejli.netlify.app/"
 ]
 
 
