@@ -36,6 +36,10 @@ notifier = Notifier()
 # async def get(request: Request, room_name):
 #     return notifier.get_room(room_name)
 
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
 
 @app.websocket("/ws/{room_name}")
 async def websocket_endpoint(
