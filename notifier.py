@@ -114,4 +114,4 @@ class Notifier:
             self.connections[room_name].get_room()
         elif message["message"] == "remove_person":
             self.connections[room_name].pop_person(name=message["name"])
-            await websocket.send_text(json.dumps(self.connections[room_name].get_room()))
+            await self.connections[room_name].send_message(self.connections[room_name].get_room())
