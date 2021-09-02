@@ -33,7 +33,6 @@ class Room:
         return body
 
     async def roll(self):
-        print(self.remaining)
         people = self.remaining.copy()
         if time.time() - self.last_roll_time < 10:
             return self.get_room()
@@ -41,15 +40,12 @@ class Room:
             picked_person_index = random.randrange(0, len(self.remaining))
             self.last_roll_time = time.time()
             self.pop_person(self.remaining[picked_person_index])
-            body = {
-                "remaining": people,
-                "picked": picked_person_index
-            }
         else:
-            body = {
-                "remaining": people,
-                "picked": 0
-            }
+            picked_person_index = 0
+        body = {
+            "remaining": people,
+            "picked": picked_person_index
+        }
         await self.send_message(body)
         return body
 
@@ -118,4 +114,4 @@ class Notifier:
             self.connections[room_name].get_room()
         elif message["message"] == "remove_person":
             self.connections[room_name].pop_person(name=message["name"])
-            self.connections[room_name].get_room()
+            await websocket.send_text(json.dumps(self.connections[room_name].get_room()))
