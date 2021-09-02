@@ -116,3 +116,6 @@ class Notifier:
         elif message["message"] == "join_room":
             await self.connections[room_name].add_person(name=message["name"])
             self.connections[room_name].get_room()
+        elif message["message"] == "remove_person":
+            await self.connections[room_name].pop_person(name=message["name"])
+            self.connections[room_name].get_room()
