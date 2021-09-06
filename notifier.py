@@ -109,6 +109,8 @@ class Notifier:
             await self.connections[room_name].roll()
         elif message["message"] == "get_room":
             websocket.send_text(json.dumps(self.connections[room_name].get_room()))
+        elif message["message"] == "del_room":
+            del self.connections[room_name]
         elif message["message"] == "join_room":
             await self.connections[room_name].add_person(name=message["name"])
             self.connections[room_name].get_room()
