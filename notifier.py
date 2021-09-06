@@ -73,6 +73,9 @@ class Notifier:
         except Exception:
             return None
 
+    def del_room(self, room_name):
+        del self.connections[room_name]
+
     def get_room(self, room_name):
         try:
             self.connections[room_name]

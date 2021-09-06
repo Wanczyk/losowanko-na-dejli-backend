@@ -41,6 +41,12 @@ async def read_root():
     return {"Hello": "World"}
 
 
+@app.get("/{room_name}")
+async def del_room(room_name):
+    notifier.del_room(room_name)
+    return {"Return": "OK"}
+
+
 @app.websocket("/ws/{room_name}")
 async def websocket_endpoint(
     websocket: WebSocket, room_name, background_tasks: BackgroundTasks
